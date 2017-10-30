@@ -1,6 +1,6 @@
 {
   "name": "yo-brain-games",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -9,8 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
+    "eslint": "eslint",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,16 @@
   "keywords": [],
   "author": "yorickov",
   "license": "ISC",
+  "homepage": "https://github.com/Yorickov/project-lvl1-s160.git#readme",
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
+    "babel-eslint": "^8.0.1",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*"
+    "babel-preset-stage-0": "*",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   },
   "dependencies": {
     "readline-sync": "^1.4.7"
