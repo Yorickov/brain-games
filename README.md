@@ -1,4 +1,4 @@
-# Braib-games
+# Brain-games
 
 ## Setup  
 `make install`
