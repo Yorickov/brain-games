@@ -1,29 +1,23 @@
-import { greeting, askUserName, rulesEven, endGameBad, endGameGood, userAnswerRight, userAnswerWrong } from './consts';
+import { greeting, askUserName, endGameBad, endGameGood, userAnswerRight, userAnswerWrong } from './consts';
 import { doMessage, getAnswerQuestion } from './functions';
-import randomFunction from './randomFunction';
 
-const greetUser = () => {
-  const greetPlayer = `${greeting}${askUserName}`;
-  const message = `Hello, ${getAnswerQuestion(greetPlayer)}!`;
-  return doMessage(message);
-};
-
-const gameEven = (numbersCount, rightAnswersCount) => {
-  const greetPlayer = `${greeting}${rulesEven}`;
+const flow = (rules, getRandomQuestion, getRightAnswer, rightAnswersCount) => {
+// greetings
+  const greetPlayer = `${greeting}${rules}`;
   doMessage(greetPlayer);
   const userName = getAnswerQuestion(askUserName);
   const message = `Hello, ${userName}!\n`;
   doMessage(message);
-
+  // process
   const iter = (count) => {
     if (count === 0) {
       const messageEndGood = `${endGameGood}, ${userName}!`;
       return doMessage(messageEndGood);
     }
-
-    const randomNumber = randomFunction(numbersCount);
-    const rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-    const question = `Question: ${randomNumber} Your answer:`;
+    // QA
+    const randomQuestion = getRandomQuestion();
+    const rightAnswer = getRightAnswer(randomQuestion);
+    const question = `Question: ${randomQuestion} Your answer:`;
     const answer = getAnswerQuestion(question);
 
     if (answer === rightAnswer) {
@@ -38,4 +32,4 @@ const gameEven = (numbersCount, rightAnswersCount) => {
   iter(rightAnswersCount);
 };
 
-export { greetUser, gameEven };
+export default flow;
