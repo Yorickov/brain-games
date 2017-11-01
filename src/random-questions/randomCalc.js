@@ -2,8 +2,8 @@ import { cons } from 'hexlet-pairs';
 import randomFunction from '../helpers/randomFunction';
 
 const randomCalc = () => {
-  const firstNumber = randomFunction(9);
-  const secondNumber = randomFunction(9);
+  const firstNumber = randomFunction(100);
+  const secondNumber = randomFunction(100);
 
   let sign;
   let answerRight;
