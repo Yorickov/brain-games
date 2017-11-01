@@ -17,7 +17,7 @@ const flow = (rules, getRandomQuestion, getRightAnswer, rightAnswersCount) => {
     // QA
     const randomQuestion = getRandomQuestion();
     const rightAnswer = getRightAnswer(randomQuestion);
-    const question = `Question: ${randomQuestion} Your answer:`;
+    const question = `Question: ${randomQuestion}\nYour answer:`;
     const answer = getAnswerQuestion(question);
 
     if (answer === rightAnswer) {
