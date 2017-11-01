@@ -1,12 +1,11 @@
 {
   "name": "yo-brain-games",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-calc.js",
     "brain-calc": "dist/bin/brain-gcd.js"
   },
   "scripts": {
