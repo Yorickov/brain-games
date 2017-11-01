@@ -1,17 +1,11 @@
-import { rulesEven } from '../consts';
-import randomFunction from '../randomFunction';
+import { rulesEven } from '../helpers/messages';
+import randomEven from '../random-questions/randomEven';
 import flow from '..';
 
-const gameEven = (numbersCount) => {
-  const getRandomQuestion = () => randomFunction(numbersCount);
-
-  const getRightAnswer = (question) => {
-    const rightAnswer = question % 2 === 0 ? 'yes' : 'no';
-    return rightAnswer;
-  };
-
+const gameEven = () => {
+  const getQuestionPair = () => randomEven();
   const rightAnswersCount = 3;
-  return flow(rulesEven, getRandomQuestion, getRightAnswer, rightAnswersCount);
+  return flow(rulesEven, getQuestionPair, rightAnswersCount);
 };
 
 export default gameEven;

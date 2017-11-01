@@ -1,5 +1,5 @@
-import { greeting, askUserName } from '../consts';
-import { doMessage, getAnswerQuestion } from '../functions';
+import { greeting, askUserName } from '../helpers/messages';
+import { doMessage, getAnswerQuestion } from '../helpers/functions';
 
 export default () => {
   const greetPlayer = `${greeting}${askUserName}`;

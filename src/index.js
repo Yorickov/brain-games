@@ -1,7 +1,8 @@
-import { greeting, askUserName, endGameBad, endGameGood, userAnswerRight, userAnswerWrong } from './consts';
-import { doMessage, getAnswerQuestion } from './functions';
+import { car, cdr } from 'hexlet-pairs';
+import { greeting, askUserName, endGameBad, endGameGood, userAnswerRight, userAnswerWrong } from './helpers/messages';
+import { doMessage, getAnswerQuestion } from './helpers/functions';
 
-const flow = (rules, getRandomQuestion, getRightAnswer, rightAnswersCount) => {
+const flow = (rules, getQuestionPair, rightAnswersCount) => {
 // greetings
   const greetPlayer = `${greeting}${rules}`;
   doMessage(greetPlayer);
@@ -15,11 +16,11 @@ const flow = (rules, getRandomQuestion, getRightAnswer, rightAnswersCount) => {
       return doMessage(messageEndGood);
     }
     // QA
-    const randomQuestion = getRandomQuestion();
-    const rightAnswer = getRightAnswer(randomQuestion);
-    const question = `Question: ${randomQuestion}\nYour answer:`;
-    const answer = getAnswerQuestion(question);
+    const QuestionPair = getQuestionPair();
+    const question = `Question: ${car(QuestionPair)}\nYour answer:`;
+    const rightAnswer = cdr(QuestionPair);
 
+    const answer = getAnswerQuestion(question);
     if (answer === rightAnswer) {
       doMessage(userAnswerRight);
       return iter(count - 1);
