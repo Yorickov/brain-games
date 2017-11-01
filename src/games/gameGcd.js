@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import randomFunction from '../utils';
+import { getRandom } from '../utils';
 import flow from '..';
 
 const gcd = (a, b) => {
@@ -11,8 +11,8 @@ const gcd = (a, b) => {
 };
 
 const randomGcd = () => {
-  const firstNumber = randomFunction(100);
-  const secondNumber = randomFunction(100);
+  const firstNumber = getRandom(100);
+  const secondNumber = getRandom(100);
 
   const question = `${firstNumber} ${secondNumber}`;
   const answerRight = gcd(firstNumber, secondNumber);

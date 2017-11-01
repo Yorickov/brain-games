@@ -1,14 +1,14 @@
 import { cons } from 'hexlet-pairs';
-import randomFunction from '../utils';
+import { getRandom } from '../utils';
 import flow from '..';
 
 const randomCalc = () => {
-  const firstNumber = randomFunction(100);
-  const secondNumber = randomFunction(100);
+  const firstNumber = getRandom(100);
+  const secondNumber = getRandom(100);
   let sign;
   let answerRight;
 
-  switch (randomFunction(3)) {
+  switch (getRandom(3)) {
     case 1:
       sign = '+';
       answerRight = firstNumber + secondNumber;
