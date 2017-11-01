@@ -1,6 +1,15 @@
+import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
-import { greeting, askUserName, endGameBad, endGameGood, userAnswerRight, userAnswerWrong } from './helpers/messages';
-import { doMessage, getAnswerQuestion } from './helpers/functions';
+
+const getAnswerQuestion = question => readlineSync.question(question);
+const doMessage = message => console.log(message);
+
+const greeting = 'Welcome to the Brain Games!\n\n';
+const askUserName = 'May I have your name?';
+const endGameBad = 'Let\'s try again!';
+const endGameGood = 'Congratulations';
+const userAnswerRight = 'Correct!';
+const userAnswerWrong = 'is wrong answer ;(. Correct answer was';
 
 const flow = (rules, getQuestionPair, rightAnswersCount) => {
 // greetings
@@ -17,10 +26,9 @@ const flow = (rules, getQuestionPair, rightAnswersCount) => {
     }
     // QA
     const QuestionPair = getQuestionPair();
-    const question = `Question: ${car(QuestionPair)}\nYour answer:`;
     const rightAnswer = cdr(QuestionPair);
 
-    const answer = getAnswerQuestion(question);
+    const answer = getAnswerQuestion(`Question: ${car(QuestionPair)}\nYour answer:`);
     if (answer === rightAnswer) {
       doMessage(userAnswerRight);
       return iter(count - 1);
