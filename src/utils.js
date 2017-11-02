@@ -16,4 +16,10 @@ const getMaxNumber = (str) => {
   return max;
 };
 
-export { getRandom, getMinNumber, getMaxNumber };
+const inputSymIntoStr = (str, position, sym) => {
+  const beforeSym = str.slice(0, position);
+  const afterSym = str.slice(position + 1);
+  return `${beforeSym}${sym}${afterSym}`;
+};
+
+export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr };

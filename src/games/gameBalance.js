@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { getRandom, getMinNumber, getMaxNumber } from '../utils';
+import { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr } from '../utils';
 import flow from '..';
 
 const balance = (str) => {
@@ -11,9 +11,9 @@ const balance = (str) => {
 
   const posMin = str.indexOf(min);
   const posMax = str.indexOf(max);
-  const strFixMin = `${str.slice(0, posMin)}${Number(min) + 1}${str.slice(posMin + 1)}`;
-  const strFixMax = `${strFixMin.slice(0, posMax)}${Number(max) - 1}${strFixMin.slice(posMax + 1)}`;
 
+  const strFixMin = inputSymIntoStr(str, posMin, Number(min) + 1);
+  const strFixMax = inputSymIntoStr(strFixMin, posMax, Number(max) - 1);
   return balance(strFixMax);
 };
 
@@ -43,9 +43,7 @@ const randomBalance = () => {
 const gameBalance = () => {
   const getQuestionPair = () => randomBalance();
   const rulesBalance = 'Balance the given number.';
-  const rightAnswersCount = 3;
-
-  return flow(rulesBalance, getQuestionPair, rightAnswersCount);
+  return flow(rulesBalance, getQuestionPair);
 };
 
 export default gameBalance;

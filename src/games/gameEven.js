@@ -17,9 +17,7 @@ const randomEven = () => {
 const gameEven = () => {
   const getQuestionPair = () => randomEven();
   const rulesEven = 'Answer "yes" if number even otherwise answer "no"';
-  const rightAnswersCount = 3;
-
-  return flow(rulesEven, getQuestionPair, rightAnswersCount);
+  return flow(rulesEven, getQuestionPair);
 };
 
 export default gameEven;

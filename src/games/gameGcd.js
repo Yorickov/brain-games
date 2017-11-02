@@ -22,8 +22,7 @@ const randomGcd = () => {
 const gameGcd = () => {
   const getQuestionPair = () => randomGcd();
   const rulesGcd = 'Find the greatest common divisor of given numbers.';
-  const rightAnswersCount = 3;
-  return flow(rulesGcd, getQuestionPair, rightAnswersCount);
+  return flow(rulesGcd, getQuestionPair);
 };
 
 export default gameGcd;

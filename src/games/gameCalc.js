@@ -28,8 +28,7 @@ const randomCalc = () => {
 const gameCalc = () => {
   const getQuestionPair = () => randomCalc();
   const rulesCalc = 'What is the result of the expression?';
-  const rightAnswersCount = 3;
-  return flow(rulesCalc, getQuestionPair, rightAnswersCount);
+  return flow(rulesCalc, getQuestionPair);
 };
 
 export default gameCalc;
