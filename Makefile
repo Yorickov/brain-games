@@ -21,3 +21,6 @@ publish:
 
 lint:
 	npm run eslint
+
+clear:
+	rm -rf dist
