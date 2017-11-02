@@ -21,6 +21,7 @@ const randomCalc = () => {
       sign = '*';
       answerRight = firstNumber * secondNumber;
   }
+
   const question = `${firstNumber} ${sign} ${secondNumber}`;
   return cons(question, String(answerRight));
 };

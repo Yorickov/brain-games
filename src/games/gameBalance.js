@@ -34,9 +34,9 @@ const sortNumber = (str) => {
 
 const randomBalance = () => {
   const number = getRandom(1000);
+
   const answerRight = sortNumber(balance(String(number)));
   const question = `${number}`;
-
   return cons(question, answerRight);
 };
 

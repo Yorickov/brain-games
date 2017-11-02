@@ -9,6 +9,7 @@ const getAnswerRight = (question) => {
 
 const randomPrime = () => {
   const numberCounts = 100;
+
   const question = getRandom(numberCounts);
   const answerRight = getAnswerRight(question);
   return cons(question, answerRight);

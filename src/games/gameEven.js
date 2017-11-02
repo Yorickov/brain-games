@@ -9,6 +9,7 @@ const getAnswerRight = (question) => {
 
 const randomEven = () => {
   const numberCounts = 20;
+
   const question = getRandom(numberCounts);
   const answerRight = getAnswerRight(question);
   return cons(question, answerRight);

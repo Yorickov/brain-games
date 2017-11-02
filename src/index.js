@@ -11,6 +11,7 @@ const flow = (rules, getQuestionPair) => {
   const greeting = 'Welcome to the Brain Games!';
   const greetPlayer = `${greeting}\n\n${rules}`;
   doMessage(greetPlayer);
+
   const askUserName = 'May I have your name?';
   const userName = getAnswerQuestion(askUserName);
   const message = `Hello, ${userName}!\n`;
