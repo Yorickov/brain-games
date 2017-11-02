@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import { getRandom } from '../utils';
 import flow from '..';
 
-const getAnswerRightEven = (question) => {
+const getAnswerRight = (question) => {
   const result = question % 2 === 0 ? 'yes' : 'no';
   return result;
 };
@@ -10,7 +10,7 @@ const getAnswerRightEven = (question) => {
 const randomEven = () => {
   const numberCounts = 20;
   const question = getRandom(numberCounts);
-  const answerRight = getAnswerRightEven(question);
+  const answerRight = getAnswerRight(question);
   return cons(question, answerRight);
 };
 

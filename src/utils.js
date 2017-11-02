@@ -22,4 +22,14 @@ const inputSymIntoStr = (str, position, sym) => {
   return `${beforeSym}${sym}${afterSym}`;
 };
 
-export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr };
+const isPrime = (num) => {
+  const iter = (count) => {
+    if (count === 1) {
+      return true;
+    }
+    return (count === 0 || num % count === 0) ? false : iter(count - 1);
+  };
+  return iter(num - 1);
+};
+
+export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr, isPrime };
