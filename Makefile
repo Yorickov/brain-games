@@ -1,6 +1,10 @@
 install:
 	npm install
 
+build:
+	rm -rf dist
+	npm run build
+
 game:
 	npm run babel-node -- src/bin/brain-games.js
 
@@ -27,6 +31,3 @@ publish:
 
 lint:
 	npm run eslint
-
-clear:
-	rm -rf dist

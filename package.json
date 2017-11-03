@@ -1,7 +1,7 @@
 {
   "name": "yo-brain-games",
   "version": "0.9.0",
-  "description": "",
+  "description": "small brain games for console",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -11,6 +11,9 @@
     "brain-balance": "dist/bin/brain-balance.js",
     "brain-progression": "dist/bin/brain-progression.js",
     "brain-prime": "dist/bin/brain-prime.js"
+  },
+  "engines": {
+  "node": "8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
