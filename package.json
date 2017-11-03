@@ -1,6 +1,6 @@
 {
   "name": "yo-brain-games",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "small brain games for console",
   "main": "dist/index.js",
   "bin": {
@@ -13,7 +13,7 @@
     "brain-prime": "dist/bin/brain-prime.js"
   },
   "engines": {
-  "node": "8"
+    "node": "8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
