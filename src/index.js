@@ -14,7 +14,6 @@ const flow = (rules, getQuestionPair) => {
     }
 
     const { question, answerRight } = getQuestionPair();
-
     const answer = getAnswerQuestion(`Question: ${question}\nYour answer:`);
     if (answer === answerRight) {
       console.log('Correct!');

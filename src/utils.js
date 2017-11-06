@@ -1,5 +1,6 @@
 const getRandom = max => 1 + Math.floor(Math.random() * max);
 
+// const getMinNumber = str => String(Math.min(...str.split('')));
 const getMinNumber = (str) => {
   let min = 9;
   for (let i = 0; i < str.length; i += 1) {
@@ -8,6 +9,7 @@ const getMinNumber = (str) => {
   return min;
 };
 
+// const getMaxNumber = str => String(Math.max(...str.split('')));
 const getMaxNumber = (str) => {
   let max = 0;
   for (let i = 0; i < str.length; i += 1) {
@@ -22,6 +24,7 @@ const inputSymIntoStr = (str, position, sym) => {
   return `${beforeSym}${sym}${afterSym}`;
 };
 
+// const sortNumber = str => str.split('').sort().join('');
 const sortNumber = (str) => {
   let firstPart = '';
   let secondPart = '';
