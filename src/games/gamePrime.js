@@ -1,4 +1,3 @@
-import { cons } from 'hexlet-pairs';
 import { getRandom, isPrime } from '../utils';
 import flow from '..';
 
@@ -12,7 +11,7 @@ const randomPrime = () => {
 
   const question = getRandom(numberCounts);
   const answerRight = getAnswerRight(question);
-  return cons(question, answerRight);
+  return { question, answerRight };
 };
 
 const gamePrime = () => {

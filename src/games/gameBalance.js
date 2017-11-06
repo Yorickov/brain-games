@@ -1,5 +1,4 @@
-import { cons } from 'hexlet-pairs';
-import { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr } from '../utils';
+import { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr, sortNumber } from '../utils';
 import flow from '..';
 
 const balance = (str) => {
@@ -17,27 +16,12 @@ const balance = (str) => {
   return balance(strFixMax);
 };
 
-const sortNumber = (str) => {
-  let firstPart = '';
-  let secondPart = '';
-  const check = getMinNumber(str);
-
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i] === check) {
-      firstPart = `${firstPart}${str[i]}`;
-    } else {
-      secondPart = `${secondPart}${str[i]}`;
-    }
-  }
-  return `${firstPart}${secondPart}`;
-};
-
 const randomBalance = () => {
   const number = getRandom(1000);
 
   const answerRight = sortNumber(balance(String(number)));
   const question = `${number}`;
-  return cons(question, answerRight);
+  return { question, answerRight };
 };
 
 const gameBalance = () => {

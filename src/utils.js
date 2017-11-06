@@ -22,6 +22,21 @@ const inputSymIntoStr = (str, position, sym) => {
   return `${beforeSym}${sym}${afterSym}`;
 };
 
+const sortNumber = (str) => {
+  let firstPart = '';
+  let secondPart = '';
+  const check = getMinNumber(str);
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === check) {
+      firstPart = `${firstPart}${str[i]}`;
+    } else {
+      secondPart = `${secondPart}${str[i]}`;
+    }
+  }
+  return `${firstPart}${secondPart}`;
+};
+
 const isPrime = (num) => {
   const iter = (count) => {
     if (count === 1) {
@@ -32,4 +47,4 @@ const isPrime = (num) => {
   return iter(num - 1);
 };
 
-export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr, isPrime };
+export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr, sortNumber, isPrime };

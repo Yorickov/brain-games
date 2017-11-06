@@ -1,38 +1,26 @@
 import readlineSync from 'readline-sync';
-import { car, cdr } from 'hexlet-pairs';
 
 const getAnswerQuestion = question => readlineSync.question(question);
 const rightAnswersCount = 3;
 
 const flow = (rules, getQuestionPair) => {
-// greetings
-  const greeting = 'Welcome to the Brain Games!';
-  const greetPlayer = `${greeting}\n\n${rules}`;
-  console.log(greetPlayer);
+  const userName = getAnswerQuestion(`Welcome to the Brain Games!\n\n${rules}\nMay I have your name?`);
+  console.log(`Hello, ${userName}!\n`);
 
-  const askUserName = 'May I have your name?';
-  const userName = getAnswerQuestion(askUserName);
-  const message = `Hello, ${userName}!\n`;
-  console.log(message);
-  // process
   const iter = (count) => {
     if (count === 0) {
-      const messageEndGood = `Congratulations, ${userName}!`;
-      console.log(messageEndGood);
+      console.log(`Congratulations, ${userName}!`);
       return;
     }
-    // QA
-    const QuestionPair = getQuestionPair();
-    const rightAnswer = cdr(QuestionPair);
 
-    const answer = getAnswerQuestion(`Question: ${car(QuestionPair)}\nYour answer:`);
-    if (answer === rightAnswer) {
-      const userAnswerRight = 'Correct!';
-      console.log(userAnswerRight);
+    const { question, answerRight } = getQuestionPair();
+
+    const answer = getAnswerQuestion(`Question: ${question}\nYour answer:`);
+    if (answer === answerRight) {
+      console.log('Correct!');
       iter(count - 1);
     } else {
-      const messageEndGBad = `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'\nLet's try again!, ${userName}`;
-      console.log(messageEndGBad);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerRight}'\nLet's try again!, ${userName}`);
     }
   };
 

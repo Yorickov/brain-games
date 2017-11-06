@@ -1,4 +1,3 @@
-import { cons } from 'hexlet-pairs';
 import { getRandom } from '../utils';
 import flow from '..';
 
@@ -26,7 +25,7 @@ const randomProgression = () => {
   };
 
   const question = getRowNumbers('', randomFirst, 1);
-  return cons(question, String(answerRight));
+  return { question, answerRight: String(answerRight) };
 };
 
 const gameProgresssion = () => {

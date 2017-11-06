@@ -1,4 +1,3 @@
-import { cons } from 'hexlet-pairs';
 import { getRandom } from '../utils';
 import flow from '..';
 
@@ -12,7 +11,7 @@ const randomEven = () => {
 
   const question = getRandom(numberCounts);
   const answerRight = getAnswerRight(question);
-  return cons(question, answerRight);
+  return { question, answerRight };
 };
 
 const gameEven = () => {
