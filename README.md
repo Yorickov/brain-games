@@ -4,6 +4,7 @@
 [![ClimatControl](https://api.codeclimate.com/v1/badges/92a4e9794aa9112537ed/maintainability)](https://codeclimate.com/github/Yorickov/brain-games/maintainability)
 
 Six simple console games; one engine allow you easily add new game.
+
 *Educational project hexlet.io, Javascript/Back-End, p.1*
 
 ## Technologies
@@ -17,6 +18,7 @@ Six simple console games; one engine allow you easily add new game.
 
 ## Setup
 `make install`
+
 *`npm install -g yo-brain-games`*
 
 ## Usage
