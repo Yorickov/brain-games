@@ -1,7 +1,9 @@
-const getRandom = max => 1 + Math.floor(Math.random() * max);
+export const getRandomNumber = max => 1 + Math.floor(Math.random() * max);
+
+export const isEven = num => num % 2 === 0;
 
 // const getMinNumber = str => String(Math.min(...str.split('')));
-const getMinNumber = (str) => {
+export const getMinNumber = (str) => {
   let min = 9;
   for (let i = 0; i < str.length; i += 1) {
     min = str[i] < min ? str[i] : min;
@@ -10,7 +12,7 @@ const getMinNumber = (str) => {
 };
 
 // const getMaxNumber = str => String(Math.max(...str.split('')));
-const getMaxNumber = (str) => {
+export const getMaxNumber = (str) => {
   let max = 0;
   for (let i = 0; i < str.length; i += 1) {
     max = str[i] > max ? str[i] : max;
@@ -18,29 +20,13 @@ const getMaxNumber = (str) => {
   return max;
 };
 
-const inputSymIntoStr = (str, position, sym) => {
+export const inputSymIntoStr = (str, position, sym) => {
   const beforeSym = str.slice(0, position);
   const afterSym = str.slice(position + 1);
   return `${beforeSym}${sym}${afterSym}`;
 };
 
-// const sortNumber = str => str.split('').sort().join('');
-const sortNumber = (str) => {
-  let firstPart = '';
-  let secondPart = '';
-  const check = getMinNumber(str);
-
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i] === check) {
-      firstPart = `${firstPart}${str[i]}`;
-    } else {
-      secondPart = `${secondPart}${str[i]}`;
-    }
-  }
-  return `${firstPart}${secondPart}`;
-};
-
-const isPrime = (num) => {
+export const isPrime = (num) => {
   const iter = (count) => {
     if (count === 1) {
       return true;
@@ -50,4 +36,10 @@ const isPrime = (num) => {
   return iter(num - 1);
 };
 
-export { getRandom, getMinNumber, getMaxNumber, inputSymIntoStr, sortNumber, isPrime };
+export const gcd = (a, b) => {
+  if (a > b) {
+    const result = a % b;
+    return result === 0 ? b : gcd(result, b);
+  }
+  return gcd(b, a);
+};

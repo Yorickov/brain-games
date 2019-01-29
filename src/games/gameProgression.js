@@ -1,16 +1,12 @@
-import { getRandom } from '../utils';
+import { getRandomNumber } from '../utils';
 import flow from '..';
 
-const progressionLength = 10;
-const maxStep = 9;
-const maxFirst = 9;
+const getQuestionAndCorrrectAnswer = (maxStep = 9, maxFirst = 9, progressionLength = 10) => {
+  const randomStep = getRandomNumber(maxStep);
+  const randomFirst = getRandomNumber(maxFirst);
+  const randomChoice = getRandomNumber(progressionLength);
 
-const randomProgression = () => {
-  const randomStep = getRandom(maxStep);
-  const randomFirst = getRandom(maxFirst);
-  const randomChoice = getRandom(progressionLength);
-
-  let answerRight;
+  let correctAnswer;
 
   const getRowNumbers = (str, number, count) => {
     if (count > progressionLength) {
@@ -19,19 +15,16 @@ const randomProgression = () => {
 
     const newStr = (count === randomChoice) ? `${str} ..` : `${str} ${number}`;
     if (count === randomChoice) {
-      answerRight = number;
+      correctAnswer = number;
     }
     return getRowNumbers(newStr, number + randomStep, count + 1);
   };
 
   const question = getRowNumbers('', randomFirst, 1);
-  return { question, answerRight: String(answerRight) };
+  return { question, correctAnswer: String(correctAnswer) };
 };
 
-const gameProgresssion = () => {
-  const getQuestionPair = () => randomProgression();
+export default () => {
   const rulesProgression = 'What number is missing in this progression?';
-  return flow(rulesProgression, getQuestionPair);
+  return flow(rulesProgression, getQuestionAndCorrrectAnswer);
 };
-
-export default gameProgresssion;

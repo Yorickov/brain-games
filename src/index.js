@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
 
-const getAnswerQuestion = question => readlineSync.question(question);
-const rightAnswersCount = 3;
+const getAnswer = question => readlineSync.question(question);
 
-const flow = (rules, getQuestionPair) => {
-  const userName = getAnswerQuestion(`Welcome to the Brain Games!\n\n${rules}\nMay I have your name?`);
+export default (rules, getQuestionAndCorrrectAnswer, correctAnswersCount = 3) => {
+  const userName = getAnswer(`Welcome to the Brain Games!\n\n${rules}\nMay I have your name? `);
   console.log(`Hello, ${userName}!\n`);
 
   const iter = (count) => {
@@ -13,17 +12,15 @@ const flow = (rules, getQuestionPair) => {
       return;
     }
 
-    const { question, answerRight } = getQuestionPair();
-    const answer = getAnswerQuestion(`Question: ${question}\nYour answer:`);
-    if (answer === answerRight) {
+    const { question, correctAnswer } = getQuestionAndCorrrectAnswer();
+    const answer = getAnswer(`Question: ${question}\nYour answer: `);
+    if (answer === correctAnswer) {
       console.log('Correct!');
       iter(count - 1);
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerRight}'\nLet's try again!, ${userName}`);
+      console.log(`'${answer}' is wrong answer :(. Correct answer was '${correctAnswer}'\nLet's try again!, ${userName}`);
     }
   };
 
-  iter(rightAnswersCount);
+  iter(correctAnswersCount);
 };
-
-export default flow;

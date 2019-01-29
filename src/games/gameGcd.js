@@ -1,27 +1,16 @@
-import { getRandom } from '../utils';
+import { getRandomNumber, gcd } from '../utils';
 import flow from '..';
 
-const gcd = (a, b) => {
-  if (a > b) {
-    const result = a % b;
-    return result === 0 ? b : gcd(result, b);
-  }
-  return gcd(b, a);
-};
-
-const randomGcd = () => {
-  const firstNumber = getRandom(100);
-  const secondNumber = getRandom(100);
+const getQuestionAndCorrrectAnswer = (maxNumber = 100) => {
+  const firstNumber = getRandomNumber(maxNumber);
+  const secondNumber = getRandomNumber(maxNumber);
 
   const question = `${firstNumber} ${secondNumber}`;
-  const answerRight = gcd(firstNumber, secondNumber);
-  return { question, answerRight: String(answerRight) };
+  const correctAnswer = gcd(firstNumber, secondNumber);
+  return { question, correctAnswer: String(correctAnswer) };
 };
 
-const gameGcd = () => {
-  const getQuestionPair = () => randomGcd();
+export default () => {
   const rulesGcd = 'Find the greatest common divisor of given numbers.';
-  return flow(rulesGcd, getQuestionPair);
+  return flow(rulesGcd, getQuestionAndCorrrectAnswer);
 };
-
-export default gameGcd;

@@ -1,23 +1,15 @@
-import { getRandom, isPrime } from '../utils';
+import { getRandomNumber, isPrime } from '../utils';
 import flow from '..';
 
-const getAnswerRight = (question) => {
-  const result = isPrime(question) ? 'yes' : 'no';
-  return result;
+const getCorrectAnswer = question => (isPrime(question) ? 'yes' : 'no');
+
+const getQuestionAndCorrrectAnswer = (numbersCount = 100) => {
+  const question = getRandomNumber(numbersCount);
+  const correctAnswer = getCorrectAnswer(question);
+  return { question, correctAnswer };
 };
 
-const randomPrime = () => {
-  const numberCounts = 100;
-
-  const question = getRandom(numberCounts);
-  const answerRight = getAnswerRight(question);
-  return { question, answerRight };
-};
-
-const gamePrime = () => {
-  const getQuestionPair = () => randomPrime();
+export default () => {
   const rulesPrime = 'Answer "yes" if number prime otherwise answer "no"';
-  return flow(rulesPrime, getQuestionPair);
+  return flow(rulesPrime, getQuestionAndCorrrectAnswer);
 };
-
-export default gamePrime;

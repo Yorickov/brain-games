@@ -1,34 +1,33 @@
-import { getRandom } from '../utils';
+import { getRandomNumber } from '../utils';
 import flow from '..';
 
-const randomCalc = () => {
-  const firstNumber = getRandom(100);
-  const secondNumber = getRandom(100);
-  let sign;
-  let answerRight;
+const getQuestionAndCorrrectAnswer = (maxNumber = 100) => {
+  const firstNumber = getRandomNumber(maxNumber);
+  const secondNumber = getRandomNumber(maxNumber);
+  const choosenSign = getRandomNumber(3);
 
-  switch (getRandom(3)) {
+  let sign;
+  let correctAnswer;
+
+  switch (choosenSign) {
     case 1:
       sign = '+';
-      answerRight = firstNumber + secondNumber;
+      correctAnswer = firstNumber + secondNumber;
       break;
     case 2:
       sign = '-';
-      answerRight = firstNumber - secondNumber;
+      correctAnswer = firstNumber - secondNumber;
       break;
     default:
       sign = '*';
-      answerRight = firstNumber * secondNumber;
+      correctAnswer = firstNumber * secondNumber;
   }
 
   const question = `${firstNumber} ${sign} ${secondNumber}`;
-  return { question, answerRight: String(answerRight) };
+  return { question, correctAnswer: String(correctAnswer) };
 };
 
-const gameCalc = () => {
-  const getQuestionPair = () => randomCalc();
+export default () => {
   const rulesCalc = 'What is the result of the expression?';
-  return flow(rulesCalc, getQuestionPair);
+  return flow(rulesCalc, getQuestionAndCorrrectAnswer);
 };
-
-export default gameCalc;

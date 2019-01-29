@@ -1,23 +1,15 @@
-import { getRandom } from '../utils';
+import { getRandomNumber, isEven } from '../utils';
 import flow from '..';
 
-const getAnswerRight = (question) => {
-  const result = question % 2 === 0 ? 'yes' : 'no';
-  return result;
+const getCorrectAnswer = question => (isEven(question) ? 'yes' : 'no');
+
+const getQuestionAndCorrrectAnswer = (numbersCount = 20) => {
+  const question = getRandomNumber(numbersCount);
+  const correctAnswer = getCorrectAnswer(question);
+  return { question, correctAnswer };
 };
 
-const randomEven = () => {
-  const numberCounts = 20;
-
-  const question = getRandom(numberCounts);
-  const answerRight = getAnswerRight(question);
-  return { question, answerRight };
+export default () => {
+  const rulesEven = 'Answer "yes" if number is even otherwise answer "no"';
+  return flow(rulesEven, getQuestionAndCorrrectAnswer);
 };
-
-const gameEven = () => {
-  const getQuestionPair = () => randomEven();
-  const rulesEven = 'Answer "yes" if number even otherwise answer "no"';
-  return flow(rulesEven, getQuestionPair);
-};
-
-export default gameEven;
