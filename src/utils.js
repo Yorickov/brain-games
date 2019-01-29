@@ -20,12 +20,6 @@ export const getMaxNumber = (str) => {
   return max;
 };
 
-export const inputSymIntoStr = (str, position, sym) => {
-  const beforeSym = str.slice(0, position);
-  const afterSym = str.slice(position + 1);
-  return `${beforeSym}${sym}${afterSym}`;
-};
-
 export const isPrime = (num) => {
   const iter = (count) => {
     if (count === 1) {
